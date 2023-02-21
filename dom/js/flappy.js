@@ -27,4 +27,18 @@ function ParDeBarreiras(altura, abertura, x) {
 
     this.elemento.appendChild(this.superior.elemento)
     this.elemento.appendChild(this.inferior.elemento)
+
+    this.sortearAbertura = () => {
+        const alturaSuperior = Math.random() * (altura - abertura)
+        const alturaInferior = altura - abertura - alturaSuperior
+        this.superior.setAltura(alturaSuperior)
+        this.inferior.setAltura(alturaInferior)
+    }
+
+    this.getX = () => parseInt(this.elemento.style.left.split("px")[0])
+    this.setX = x => this.elemento.style.left = `${x}px`
+    this.getLargura = () => this.elemento.clientWidth
+
+    this.sortearAbertura()
+    this.setX(x)
 }

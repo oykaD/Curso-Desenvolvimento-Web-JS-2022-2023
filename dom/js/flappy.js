@@ -78,6 +78,12 @@ function Passaro(alturaJogo) {
 
     this.elemento = novoElemento("img", "passaro")
     this.elemento.src = "img/passaro.png"
+
+    this.getY = () => parseInt(this.elemento.style.bottom.split("px")[0])
+    this.setY = y => this.elemento.style.bottom = `${y}px`
+
+    window.onkeydown = e => voando = true
+    window.onkeyup = e => voando = false
 }
 
 const barreiras = new Barreiras(700, 1200, 200, 400)

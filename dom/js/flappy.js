@@ -122,6 +122,17 @@ function Progresso() {
 //     passaro.animar()
 // }, 20)
 
+function estaoSobrepostos(elementoA, elementoB) {
+    const a = elementoA.getBoundingClientRect()
+    const b = elementoB.getBoundingClientRect()
+
+    const horizontal = a.left + a.width >= b.left
+        && b.left + b.width >= a.left
+    const vertical = a.top + a.heigth >= b.top
+        && b.top + b.heigth >= a.top
+    return horizontal && vertical
+}
+
 function FlappyBird() {
     let pontos = 0
 
